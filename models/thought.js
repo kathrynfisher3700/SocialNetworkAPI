@@ -34,4 +34,23 @@ thoughtSchema.virtual('reactionCount').get(function () {
 
   const Thought = model('thought', thoughtSchema);
 
+  Thought.find({})
+  .exec()
+  .then(async collection => {
+    if (collection.length === 0) {
+      try {
+        const insertedThoughts = await Thought
+          .insertMany([
+            { thoughtText: 'Space is very big.', userName: 'William Riker' },
+            { thoughtText: 'Food. Treats. Belly Rubs.', userName: 'Boomer' },
+            { thoughtText: 'Banana Splits are better without peanuts', userName: 'Banana Pants' },
+          ]);
+        console.log('Inserted thoughts:', insertedThoughts);
+      } catch (insertedError) {
+        console.log(insertError);
+      }
+    }
+  });
+
+
 module.exports = Thought;
