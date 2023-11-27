@@ -52,15 +52,15 @@ User.find({})
       try {
         const insertedUsers = await User
           .insertMany([
-            { username: 'Banana Pants', email: 'bananasplit@gmail.com' },
-            { username: 'Jean-Luc Picard', email: 'enterprise@space.net' },
-            { username: 'JarJar Binks', email: 'dissapointing@gmail.com' },
-            { username: 'William Riker', email: 'number2@spacestuff.net' },
-            { username: 'Boomer', email: 'mycat@thecutest.com' },        
+            { userName: 'Banana Pants', email: 'bananasplit@gmail.com' },
+            { userName: 'Jean-Luc Picard', email: 'enterprise@space.net' },
+            { userName: 'JarJar Binks', email: 'dissapointing@gmail.com' },
+            { userName: 'William Riker', email: 'number2@spacestuff.net' },
+            { userName: 'Boomer', email: 'mycat@thecutest.com' },        
           ]);
         console.log('Inserted users:', insertedUsers);
-      } catch (insertedError) {
-        console.log(insertError);
+      } catch (err) {
+        console.log(err);
       }
     }
   });
