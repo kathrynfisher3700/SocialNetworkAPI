@@ -7,20 +7,20 @@ const {
   updateThought,
 } = require("../../controllers/thoughtController");
 
-// GET ALL THOUGHTS
-router.route("/thoughts").get(getThoughts);
+// GET ALL THOUGHTS /api/thoughts
+router.route("/").get(getThoughts);
 
-// GET SINLGE THOUGHT
-router.route("/thoughts/:thoughtId").get(getSingleThought);
+// GET SINLGE THOUGHT /api/thoughts/:thoughtId
+router.route("/:thoughtId").get(getSingleThought);
 
-// DELETE THOUGHT
-router.route("/thoughts/:id").get(getSingleThought).delete(deleteThought);
+// DELETE THOUGHT /api/thoughts/:thoughtId
+router.route("/:thoughtId").get(getSingleThought).delete(deleteThought);
 
-// PUT, UPDATE THOUGHT
-router.route("/thoughts/:thoughtId").post(updateThought);
+// PUT, UPDATE THOUGHT /api/thoughts/:thoughtId
+router.route("/:thoughtId").post(updateThought);
 
-// POST THOUGHT
-router.route("/thoughts").post(createThought);
+// POST THOUGHT /api/thoughts
+router.route("/").post(createThought);
 
 
 module.exports = router;

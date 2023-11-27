@@ -9,27 +9,27 @@ const {
   deleteFriend,
 } = require("../../controllers/userController");
 
-// GET ALL USERS
-router.route("/users").get(getUsers);
+// GET ALL USERS /api/users
+router.route("/").get(getUsers);
 
-// GET SINLGE USER
-router.route("/users/:userId").get(getSingleUser);
+// GET SINLGE USER /api/users/:userId
+router.route("/:userId").get(getSingleUser);
 
-// DELETE USER
-router.route("/users/:id").get(getSingleUser).delete(deleteUser);
+// DELETE USER /api/users/:userId
+router.route("/:userId").get(getSingleUser).delete(deleteUser);
 
-// PUT, UPDATE USER
-router.route("/users/:userId").post(updateUser);
+// PUT, UPDATE USER /api/users/:userId
+router.route("/:userId").post(updateUser);
 
-// POST USER
-router.route("/users").post(createUser);
+// POST USER /api/users
+router.route("/").post(createUser);
 
 ////////////////////////////////////////////////////////////////////////////
 
-// POST FRIEND
-router.route("/users/:userId/friends/:friendId").post(updateUserFriend);
+// POST FRIEND /api/users/:userId/friends/:friendId
+router.route("/:userId/friends/:friendId").post(updateUserFriend);
 
-//DELETE FRIEND
-router.route("/users/:id").get(getSingleUser).delete(deleteFriend);
+//DELETE FRIEND /api/users/:userId/
+router.route(":id").get(getSingleUser).delete(deleteFriend);
 
 module.exports = router;
