@@ -7,19 +7,19 @@ const {
   updateThought,
 } = require("../../controllers/thoughtController");
 
-// GET ALL USERS
+// GET ALL THOUGHTS
 router.route("/thoughts").get(getThoughts);
 
-// GET SINLGE USER
+// GET SINLGE THOUGHT
 router.route("/thoughts/:thoughtId").get(getSingleThought);
 
-// DELETE USER
+// DELETE THOUGHT
 router.route("/thoughts/:id").get(getSingleThought).delete(deleteThought);
 
-// PUT, UPDATE USER
+// PUT, UPDATE THOUGHT
 router.route("/thoughts/:thoughtId").post(updateThought);
 
-// POST USER
+// POST THOUGHT
 router.route("/thoughts").post(createThought);
 
 
