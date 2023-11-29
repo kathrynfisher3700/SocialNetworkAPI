@@ -1,4 +1,5 @@
-const { Schema, model } = require('mongoose');
+const { Schema, Types } = require('mongoose');
+const dateMaker = require('../utils/dateMaker');
 
 // Schema to create Reaction model
 const reactionSchema = new Schema(
@@ -18,7 +19,8 @@ const reactionSchema = new Schema(
     },
     createdAt: {
         type: Date, 
-        default: Date.now,      
+        default: Date.now,    
+        get: timestamp => dateMaker(timestamp)     
     },
   },
     {
@@ -30,6 +32,5 @@ const reactionSchema = new Schema(
   );
 
 
-  const Reaction = model('reaction', reactionSchema);
-
-module.exports = Reaction;
+ 
+module.exports = reactionSchema;

@@ -1,6 +1,6 @@
-const Thought = require('../models/thought');
+const Thought = require('../models/Thought');
 
-module.exports = {
+const thoughtController = {
   async getThoughts(req, res) {
     try {
       const thoughts = await Thought.find();
@@ -117,3 +117,5 @@ async removeReaction(req, res) {
   }
 },
 };
+
+module.exports = thoughtController;

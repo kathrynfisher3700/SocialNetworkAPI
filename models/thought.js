@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
-const reactionSchema = require('./reaction');
+const reactionSchema = require('./Reaction');
+const dateMaker = require('../utils/dateMaker');
 
 // Schema to create Thought model
 const thoughtSchema = new Schema(
@@ -12,18 +13,14 @@ const thoughtSchema = new Schema(
     },
     createdAt: {
         type: Date, 
-        default: Date.now,      
+        default: Date.now,  
+        get: timestamp => dateMaker(timestamp)    
     },
     userName: {
         type: String,
         required: true,
     },
-    reactions: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'reaction'
-      },
-    ],
+    reactions: [reactionSchema],
   },
   {
     toJSON: {
