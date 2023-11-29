@@ -19,7 +19,7 @@ router.route("/:thoughtId").get(getSingleThought);
 router.route("/:thoughtId").get(getSingleThought).delete(deleteThought);
 
 // PUT, UPDATE THOUGHT /api/thoughts/:thoughtId
-router.route("/:thoughtId").post(updateThought);
+router.route("/:thoughtId").put(updateThought);
 
 // POST THOUGHT /api/thoughts
 router.route("/").post(createThought);
