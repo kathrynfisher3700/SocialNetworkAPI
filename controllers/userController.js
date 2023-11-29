@@ -81,6 +81,7 @@ module.exports = {
     }
   },
   async deleteFriend(req, res) {
+    console.log("is this working");
     try {
       const user = await User.findOne({ 
         _id: req.params.userId }

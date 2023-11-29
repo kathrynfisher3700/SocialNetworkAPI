@@ -30,7 +30,7 @@ router.route("/").post(createUser);
 // POST FRIEND /api/users/:userId/friends/:friendId
 router.route("/:userId/friends/:friendId").post(updateUserFriend);
 
-//DELETE FRIEND /api/users/:userId/
-router.route(":id").get(getSingleUser).delete(deleteFriend);
+//DELETE FRIEND /api/users/:userId/friends/:friendId
+router.route(":userId/friends/:friendId").get(getSingleUser).delete(deleteFriend);
 
 module.exports = router;
